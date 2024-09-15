@@ -21,7 +21,7 @@ function initMap(){
             lat: 25.026631720133487,
             lng: 121.54764775745996,
             address: '台北市大安區四維路208巷3-1號',
-            songlink: 'https://open.spotify.com/embed/artist/6qqNVTkY8uBg9cP3Jd7DAH?utm_source=generator',
+            songlink: 'https://open.spotify.com/embed/playlist/2CrpJAhS6FDykvGEzUYyeg?utm_source=generator',
             rating: 4.7,
             mapLink: 'https://maps.app.goo.gl/ZnkKwjTSHTpY3MQFA',
             favSong: 'Happy',
