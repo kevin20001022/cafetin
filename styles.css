@@ -1,0 +1,327 @@
+* {
+    padding: 0; margin: 0;
+}
+
+html, body{
+    height: 100%;
+    background: linear-gradient(135deg, #2a2a2a, #171717);
+} 
+
+body {
+    display: flex;
+    flex-direction: column; /* 讓內容垂直排列 */
+    justify-content: center; /* 垂直居中 */
+    align-items: center; /* 水平居中 */
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    color: #ffffff; /* 白色文字與深色背景形成對比 */
+    font-size: 2em;
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+
+#google-map {
+    width: 80%;
+    height: 80%;
+    border-radius: 15px; /* 圓角 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8); /* 陰影效果，提升質感 */
+    border: 1px solid #444; /* 輕微的邊框，增加層次感 */
+    align-self: center;
+    margin: 0 auto;
+}
+
+.gm-style-iw-chr {
+    position: absolute;
+    display: flex;
+    top: 0;
+    right: 0;
+  }
+  
+.gm-style-iw.gm-style-iw-c {
+ padding-top: 14px !important;
+}
+
+/* 隨機按鈕樣式 */
+
+.animated-btn {
+    background-color: #2d2d2d;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+.animated-btn:hover {
+    background-color: #202020;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.animated-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.btn-text {
+    position: relative;
+    z-index: 1;
+    /* 如果需要，添加以下行來確保文字居中 */
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animated-btn.active {
+    animation: pulse 0.5s ease-in-out;
+}
+
+/* Rating  */
+
+.title-rating {
+    display: flex;
+    align-items: center;
+}
+
+.rating {
+    font-size: 0.9em;
+    margin-left: 8px;
+    color: #ffd700; /* 保持星星為金黃色 */
+}
+
+/* 點選標題時連結樣式 */
+
+.feh-content h5 a, .modal-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.feh-content h5 a:hover, .modal-title a:hover {
+    text-decoration: underline;
+}
+
+/* details button */
+
+.details-button {
+    background-color: #FFF9C4; /* 柔和的淺黃色 */
+    color: #333; /* 深灰色文字，確保可讀性 */
+    border: 1px solid #FFD54F; /* 保留邊框，使用稍深的黃色 */
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.details-button:hover {
+    background-color: #FFE082; /* 懸停時稍微深一點的黃色 */
+    border-color: #FFC107; /* 懸停時邊框顏色變深 */
+}
+
+/* Modal */
+
+#myModal .modal-content {
+    background-color: #282828 !important; /* 深灰色背景 */
+    color: #ffffff !important; /* 白色文字 */
+}
+
+#myModal .modal-header {
+    border-bottom: 1px solid #555555 !important; /* 稍微淺一點的灰色邊框 */
+}
+
+#myModal .modal-footer {
+    border-top: 1px solid #555555 !important;
+}
+
+#myModal .btn-close {
+    color: #ffffff !important;
+    opacity: 0.8;
+    filter: invert(1) grayscale(100%) brightness(200%); /* 使關閉按鈕在深色背景上可見 */
+}
+
+#myModal .btn-close:hover {
+    opacity: 1;
+}
+
+#myModal .modal-title a {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+#myModal .modal-title a:hover {
+    text-decoration: underline;
+}
+
+#myModal .rating {
+    color: #ffd700 !important; /* 保持星星為金黃色 */
+}
+
+/* 確保 modal 背景是透明的，這樣深色背景才能顯示出來 */
+#myModal .modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 覆蓋 Google Maps InfoWindow 的默認樣式 */
+.gm-style .gm-style-iw-c {
+    background-color: #333333 !important;
+    padding: 0 !important;
+}
+
+.gm-style .gm-style-iw-d {
+    overflow: hidden !important;
+}
+
+.gm-style .gm-style-iw-t::after {
+    background: linear-gradient(45deg, #333333 50%, rgba(0, 0, 0, 0) 51%, rgba(0, 0, 0, 0) 100%) !important;
+}
+
+/* 調整關閉按鈕顏色 */
+.gm-ui-hover-effect {
+    filter: invert(1) grayscale(100%) brightness(200%) !important;
+}
+
+.feh-content.dark-theme {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.feh-content.dark-theme h5 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.feh-content.dark-theme a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.feh-content.dark-theme a:hover {
+    text-decoration: underline;
+}
+
+.feh-content.dark-theme .rating {
+    color: #ffd700;
+}
+
+.feh-content.dark-theme address {
+    margin-bottom: 10px;
+}
+
+.feh-content.dark-theme .details-button {
+    background-color: #555555;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.feh-content.dark-theme .details-button:hover {
+    background-color: #777777;
+}
+
+/* fav */
+
+.favorites i {
+    font-style: italic;
+    color: #aaa; /* 使斜體文字顏色稍淺，增加對比 */
+}
+
+/* search */
+
+#search-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    color:#171717;
+}
+
+#search-icon {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #fff; /* 白色圖標 */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* 添加陰影以增加可見度 */
+}
+
+#search-box {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 10px;
+    border-radius: 5px;
+    width: 250px; /* 調整搜索框寬度 */
+}
+
+#search-input {
+    background-color: #333; /* 深色背景 */
+    color: #fff; /* 白色文字 */
+    border: 1px solid #555;
+}
+
+#search-input::placeholder {
+    color: #aaa; /* 淺灰色佔位符文字 */
+}
+
+#search-submit {
+    background-color: #555; /* 深灰色按鈕背景 */
+    color: #fff; /* 白色按鈕文字 */
+    border: 1px solid #777;
+}
+
+#search-submit:hover {
+    background-color: #666; /* 懸停時稍微亮一點 */
+}
+
+.custom-search .custom-input {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+.custom-search .custom-input::placeholder {
+    color: #aaa;
+}
+
+.custom-search .custom-button {
+    background-color: #555;
+    color: #fff;
+    border: 1px solid #777;
+}
+
+.custom-search .custom-button:hover {
+    background-color: #666;
+}
