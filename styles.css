@@ -28,6 +28,21 @@ header h1 {
     letter-spacing: 2px;
 }
 
+#logo {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 130px; /* 调整宽度适应你的需求 */
+    height: auto; /* 保持图片比例 */
+    z-index: 1000; /* 确保 logo 在其他元素之上 */
+}
+
+/* 如果需要在小屏幕上调整大小，可以添加媒体查询 */
+@media (max-width: 768px) {
+    #logo {
+        width: 80px; /* 在小屏幕上稍微缩小 */
+    }
+}
 
 #google-map {
     width: 80%;
@@ -274,7 +289,7 @@ header h1 {
     border: none;
     font-size: 24px;
     color: #fff; /* 白色圖標 */
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* 添加陰影以增加可見度 */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /*添加陰影以增加可見度 */
 }
 
 #search-box {

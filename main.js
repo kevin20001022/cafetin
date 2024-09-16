@@ -345,6 +345,8 @@ function initMap(){
     // 添加隨機咖啡店按鈕的功能
     document.getElementById('randomCafeBtn').addEventListener('click', function() {
 
+        console.log('隨機咖啡店按鈕被點擊');
+
         if (currentInfoWindow) {
             currentInfoWindow.close();
         }
@@ -397,7 +399,7 @@ function initMap(){
             if (currentInfoWindow) {
                 currentInfoWindow.close();
             }
-            
+
             infoWindow.open(map, marker);
             currentInfoWindow = infoWindow; // 更新當前打開的 InfoWindow
             
@@ -412,39 +414,66 @@ function initMap(){
         });
     }
 
+    // 搜尋店名按鈕
+
     document.addEventListener('DOMContentLoaded', function() {
         const searchContainer = document.getElementById('search-container');
         const searchIcon = document.getElementById('search-icon');
         const searchBox = document.getElementById('search-box');
         const searchInput = document.getElementById('search-input');
         const searchSubmit = document.getElementById('search-submit');
+        searchBox.style.display = 'none'; // 确保初始时隐藏
+
+        console.log('DOM加载完成，搜索元素:', {
+            searchContainer: !!searchContainer,
+            searchIcon: !!searchIcon,
+            searchBox: !!searchBox,
+            searchInput: !!searchInput,
+            searchSubmit: !!searchSubmit
+        });
 
         if (!searchContainer || !searchIcon || !searchBox || !searchInput || !searchSubmit) {
-            console.error('無法找到搜索相關的DOM元素');
+            console.error('无法找到搜索相关的DOM元素');
             return;
         }
 
-        searchIcon.addEventListener('click', function() {
-            console.log('搜索圖標被點擊');
+        // 修改搜索图标点击事件
+        searchIcon.addEventListener('click', function(event) {
+            event.stopPropagation(); // 阻止事件冒泡
+            console.log('搜索图标被点击');
             searchBox.style.display = searchBox.style.display === 'none' ? 'block' : 'none';
+            console.log('搜索框显示状态:', searchBox.style.display);
         });
 
-        // 使用事件委派
-        searchContainer.addEventListener('click', function(event) {
-            if (event.target === searchSubmit || (event.target.parentElement === searchSubmit)) {
+        // 修改搜索提交按钮点击事件
+        searchSubmit.addEventListener('click', function(event) {
+            event.preventDefault(); // 阻止默认行为
+            event.stopPropagation(); // 阻止事件冒泡
+            console.log('搜索提交按钮被点击');
+            performSearch();
+        });
+
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault(); // 阻止默认行为
+                console.log('在搜索输入框中按下Enter键');
                 performSearch();
             }
         });
 
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
+        // 添加点击文档其他地方关闭搜索框的功能
+        document.addEventListener('click', function(event) {
+            console.log('点击事件触发，目标元素:', event.target);
+            if (!searchContainer.contains(event.target)) {
+                console.log('点击了搜索容器外部，关闭搜索框');
+                searchBox.style.display = 'none';
             }
         });
 
         function performSearch() {
-            console.log('執行搜索');
+            console.log('执行搜索');
             const searchTerm = searchInput.value.toLowerCase().trim();
+            console.log('搜索词:', searchTerm);
             const foundIndex = markers.findIndex(function(marker) {
                 return marker.locationName.toLowerCase().includes(searchTerm);
             });
