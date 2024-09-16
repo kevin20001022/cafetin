@@ -5,7 +5,7 @@ function initMap(){
 
     const markers = [
         {
-            locationName: '未央咖啡店',
+            locationName: 'Shop A',
             lat: 25.026265083472012,
             lng: 121.54742066494451,
             address: '台北市大安區四維路208巷10號',
@@ -17,7 +17,7 @@ function initMap(){
             favAlbum: 'Never Enough'
         },
         {
-            locationName: 'The Folks',
+            locationName: 'Shop B',
             lat: 25.026631720133487,
             lng: 121.54764775745996,
             address: '台北市大安區四維路208巷3-1號',
@@ -29,7 +29,7 @@ function initMap(){
             favAlbum: 'G I R L'
         },
         {
-            locationName: '翌日咖啡店',
+            locationName: 'Shop C',
             lat: 25.02832157891815,
             lng: 121.52983143188784,
             address: '台北市大安區潮州街176號',
@@ -41,7 +41,7 @@ function initMap(){
             favAlbum: '÷'
         },
         {
-            locationName: '北風社',
+            locationName: 'Shop D',
             lat: 25.05534065103022,
             lng: 121.52020334125248,
             address: '台北市大同區赤峰街47巷18號2樓',
@@ -53,7 +53,7 @@ function initMap(){
             favAlbum: 'WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?'
         },
         {
-            locationName: '桃五咖啡',
+            locationName: 'Shop E',
             lat: 25.030004824279,
             lng: 121.54032547988488,
             address: '台北市大安區瑞安街208巷56號1樓',
